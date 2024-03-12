@@ -1,5 +1,7 @@
 package de.bytestore.jmixvnc;
 
+import de.bytestore.jmixvnc.handler.VNCHandler;
+import io.jmix.core.DataManager;
 import io.jmix.core.annotation.JmixModule;
 import io.jmix.core.impl.scanning.AnnotationScanMetadataReaderFactory;
 import io.jmix.eclipselink.EclipselinkConfiguration;
@@ -21,6 +23,14 @@ import java.util.Collections;
 @JmixModule(dependsOn = {EclipselinkConfiguration.class, FlowuiConfiguration.class})
 @PropertySource(name = "de.bytestore.jmixvnc", value = "classpath:/de/bytestore/jmixvnc/module.properties")
 public class NovnvConfiguration {
+    private final DataManager dataManager;
+
+    public NovnvConfiguration(DataManager dataManager) {
+        this.dataManager = dataManager;
+
+        // Set DataManager for Static Usage (Don't know how to use without [;-(] )
+        VNCHandler.setDataManager(dataManager);
+    }
 
     @Bean("novnv_NovnvViewControllers")
     public ViewControllersConfiguration screens(final ApplicationContext applicationContext,

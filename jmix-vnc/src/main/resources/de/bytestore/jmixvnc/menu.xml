@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://jmix.io/schema/flowui/menu">
 
-    <menu id="novnv" title="msg://de.bytestore.jmixvnc/menu.addon"/>
+    <menu id="novnv" title="msg://de.bytestore.jmixvnc/menu.addon">
+        <item view="novnv_VNCSession.list" title="msg://de.bytestore.jmixvnc.view.vncsession/VNCSessionListView.title"/>
+    </menu>
 
 </menu-config>
